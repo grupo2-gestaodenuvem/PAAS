@@ -4,7 +4,7 @@ trigger:
 pool:
   name: Default # 🔁 Nome do agent pool
   demands:
-    - Agent.Name -equals LML001  # 🔁 Força o uso do agente específico - informar o nome do Agente criado
+    - Agent.Name -equals GEN01  # 🔁 Força o uso do agente específico - informar o nome do Agente criado
 
 variables:
   resourceGroupName: rg-iac-web-paas01
@@ -13,7 +13,7 @@ variables:
   skuName: Standard              # Standard = pago (~US$ 9/mês) | Free = gratuito
   templateFile: arm-templates/staticwebapp-template.json
   parametersFile: arm-templates/staticwebapp-parameters.json
-  azureConnection: SCll01        # 🔁 informar o nome do Service Connection criado
+  azureConnection: GEN001        # 🔁 informar o nome do Service Connection criado
 
 stages:
 - stage: DeployInfrastructure
@@ -27,7 +27,7 @@ stages:
       inputs:
         deploymentScope: 'Resource Group'
         azureResourceManagerConnection: '$(azureConnection)'
-        subscriptionId: '4246eec3-ab51-462d-9fff-376f19e4e4b1' # 🔁 substituir pelo ID da subscription Azure
+        subscriptionId: 'bb41720d-ecc1-48c8-9648-5ca96f659bad' # 🔁 substituir pelo ID da subscription Azure
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resourceGroupName)'
         location: '$(location)'
